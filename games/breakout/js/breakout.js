@@ -6,6 +6,7 @@ canvas.height = window.innerHeight;
 var paused = true;
 
 var score = 0;
+var lives = 3;
 
 //paddle
 var paddleHeight = 10;
@@ -180,8 +181,7 @@ function draw() {
         } else if (y + dy > canvas.height + ballRadius) {
             y = canvas.height * 0.6;
             alert("Game over with a score of: " + score)
-            document.location.reload;
-            restart(); //only used if reload doesn't work
+            restart();
         }
     }  
 }
@@ -206,14 +206,7 @@ function keyUpHandler(e) {
     } else if (e.keyCode == 37) {
         leftPressed = false;
     } else if (e.keyCode == 32 || 13) {
-        if (paused) {
-            interval = setInterval(draw, 10);
-            paused = false;
-        } else {
-            clearInterval(interval)
-            paused = true;
-            pause();
-        }
+        togglePause()
     }
 }
 
