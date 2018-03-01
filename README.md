@@ -1,3 +1,3 @@
 ## Welcome to my switch game site
 
-[Breakout](breakout/breakout.html)
+[Breakout](games/breakout/breakout.html)
