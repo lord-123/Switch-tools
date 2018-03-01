@@ -140,6 +140,18 @@ function restart() {
     }
 }
 
+function launchFullscreen(element) {
+    if (element.requestFullscreen) {
+        element.requestFullscreen();
+    } else if (element.mozRequestFullScreen) {
+        element.mozRequestFullScreen();
+    } else if (element.webkitRequestFullscreen) {
+        element.webkitRequestFullscreen();
+    } else if (element.msRequestFullscreen) {
+        element.msRequestFullscreen();
+    }
+}
+
 function draw() {
     if (paused) {
         ctx.textAlign = "center";
@@ -209,5 +221,7 @@ function keyUpHandler(e) {
         togglePause()
     }
 }
+
+launchFullscreen();
 
 var interval = setInterval(draw, 10);
