@@ -15,6 +15,10 @@
 <script>
     var canvas = document.getElementById("myCanvas");
     var ctx = canvas.getContext("2d");
+    canvas.width = window.innerWidth;
+    canvas.height = window.innerHeight;
+
+    var paused = false;
 
     var score = 0;
 
@@ -27,19 +31,19 @@
 
     //ball
     var x = canvas.width/2;
-    var y = canvas.height-30;
-    var dx = Math.floor((Math.random() * 3) + 1);
-    var dy = Math.floor((Math.random() * 3) + 1);
+    var y = canvas.height*0.6;
+    var dx = Math.floor((Math.random() * 4) + 3);
+    var dy = Math.floor((Math.random() * 4) + 3);
     var ballRadius = 10;
 
     //bricks
-    var brickRowCount = 3;
-    var brickColumnCount = 5;
     var brickWidth = 75;
     var brickHeight = 20;
     var brickPadding = 10;
     var brickOffsetTop = 30;
-    var brickOffsetLeft = 30;
+    var brickRowCount = 10;
+    var brickColumnCount = (canvas.width-60)/(brickWidth+brickPadding);
+    var brickOffsetLeft = (canvas.width-(brickWidth+brickPadding)*brickColumnCount)/2;
 
     var bricks = [];
     for(c=0; c<brickColumnCount; c++) {
@@ -93,7 +97,7 @@
                         b.status = 0;
                         score++;
                         if(score == brickRowCount*brickColumnCount) {
-                            alert("YOU WIN, CONGRATULATIONS!");
+                            alert("YOU WIN!");
                             document.location.reload();
                         }
                     }
@@ -105,7 +109,7 @@
     function drawScore() {
         ctx.font = "16px Arial";
         ctx.fillstyle = "0095DD";
-        ctx.fillText("Score: " + score, 8, 20);
+        ctx.fillText("Score: " + score, 30, 20);
     }
 
     function mouseMoveHandler(e) {
@@ -145,8 +149,9 @@
         if(y + dy < ballRadius) {
             dy = -dy;
         } else if(y + dy > canvas.height+ballRadius) {
-            alert("GAME OVER");
-            document.location.reload();
+            y = canvas.height*0.6;
+            alert("Game over with a score of: " + score)
+            document.location.reload;
         }
     }
 
@@ -170,9 +175,19 @@
         else if(e.keyCode == 37) {
             leftPressed = false;
         }
+        else if(e.keyCode == 32) {
+            if(paused) {
+                interval = setInterval(draw,10);
+                paused = false;
+            }
+            else {
+                clearInterval(interval)
+                paused = true;
+            }
+        }
     }
 
-    setInterval(draw,10);
+    var interval = setInterval(draw,10);
 </script>
 
 </body>
