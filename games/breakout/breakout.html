@@ -107,20 +107,6 @@
         }
     }
 
-    function switchRestart() {
-        leftPressed = false;
-         rightPressed = false;
-        score = 0;
-
-        bricks = [];
-        for(c=0; c<brickColumnCount; c++) {
-            bricks[c] = [];
-            for(r=0; r<brickRowCount; r++) {
-                bricks[c][r] = { x: 0, y: 0, status: 1 };
-            }
-        }
-    }
-
     function drawScore() {
         ctx.font = "16px Arial";
         ctx.fillstyle = "0095DD";
@@ -131,6 +117,22 @@
         var relativeX = e.clientX - canvas.offsetLeft;
         if(relativeX > 0 && relativeX < canvas.width) {
             paddleX = relativeX - paddleWidth/2;
+        }
+    }
+
+    function switchRestart() {
+        leftPressed = false;
+        rightPressed = false;
+        score = 0;
+        x = canvas.width/2;
+        paddleX = (canvas.width-paddleWidth)/2;
+
+        bricks = [];
+        for(c=0; c<brickColumnCount; c++) {
+            bricks[c] = [];
+            for(r=0; r<brickRowCount; r++) {
+                bricks[c][r] = { x: 0, y: 0, status: 1 };
+            }
         }
     }
 
