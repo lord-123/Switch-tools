@@ -5,6 +5,6 @@
 | Pause  | Space/Enter  | Any button |
 | Move  | Mouse/Arrow keys  | Left stick/DPAD/touchscreen |
 
-[Play breakout](games/breakout/breakout.html)
+[Play breakout](breakout.html)
 
-[back]()
+[back](lord-123.github.io/Switch-tools)
