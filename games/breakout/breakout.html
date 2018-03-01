@@ -7,10 +7,11 @@
     	* { padding: 0; margin: 0; }
     	canvas { background: #eee; display: block; margin: 0 auto; }
     </style>
+    <link href="https://fonts.googleapis.com/css?family=Raleway" rel="stylesheet">
 </head>
 <body>
 
-<canvas id="myCanvas" width="480" height="320"></canvas>
+<canvas id="myCanvas"></canvas>
 
 <script>
     var canvas = document.getElementById("myCanvas");
@@ -43,7 +44,7 @@
     var brickOffsetTop = 30;
     var brickRowCount = 10;
     var brickColumnCount = (canvas.width-60)/(brickWidth+brickPadding);
-    var brickOffsetLeft = (canvas.width-(brickWidth+brickPadding)*brickColumnCount)/2;
+    var brickOffsetLeft = ((canvas.width-60)%(brickWidth+brickPadding)-brickPadding)/2;
 
     var bricks = [];
     for(c=0; c<brickColumnCount; c++) {
@@ -108,9 +109,10 @@
     }
 
     function drawScore() {
-        ctx.font = "16px Arial";
+        ctx.textAlign = "start";
+        ctx.font = "16px Raleway";
         ctx.fillstyle = "0095DD";
-        ctx.fillText("Score: " + score, 30, 20);
+        ctx.fillText("Score: " + score, brickOffsetLeft, 20);
     }
 
     function mouseMoveHandler(e) {
@@ -118,6 +120,16 @@
         if(relativeX > 0 && relativeX < canvas.width) {
             paddleX = relativeX - paddleWidth/2;
         }
+    }
+
+    function pause() {
+        ctx.textAlign = "center";
+        ctx.font = "200px Raleway";
+        ctx.strokeStyle = "black";
+        ctx.lineWidth = 4;
+        ctx.strokeText("Paused", canvas.width/2, canvas.height/2)
+        ctx.fillStyle = "white"
+        ctx.fillText("Paused", (canvas.width/2), canvas.height/2)
     }
 
     function restart() {
@@ -203,6 +215,7 @@
             else {
                 clearInterval(interval)
                 paused = true;
+                pause();
             }
         }
     }
