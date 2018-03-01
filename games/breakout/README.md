@@ -1,4 +1,5 @@
 # How to play breakout
+
 | Action | PC | Switch |
 | ------------- | ------------- | ------------- |
 | Pause | Space/Enter | Any button |
