@@ -4,3 +4,7 @@
 |---------------|---------------|---------------|
 | Pause  | Space/Enter  | Any button |
 | Move  | Mouse/Arrow keys  | Left stick/DPAD/touchscreen |
+
+[Play breakout](games/breakout/breakout.html)
+
+[back]()
