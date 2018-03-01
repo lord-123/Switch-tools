@@ -162,9 +162,11 @@
     function keyDownHandler(e) {
         if(e.keyCode == 39) {
             rightPressed = true;
+            leftPressed = false;
         }
         else if(e.keyCode == 37) {
             leftPressed = true;
+            rightPressed = false;
         }
     }
 
@@ -175,7 +177,7 @@
         else if(e.keyCode == 37) {
             leftPressed = false;
         }
-        else if(e.keyCode == 32) {
+        else if(e.keyCode == 32 || 13) {
             if(paused) {
                 interval = setInterval(draw,10);
                 paused = false;
