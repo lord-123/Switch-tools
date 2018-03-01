@@ -98,10 +98,25 @@
                         score++;
                         if(score == brickRowCount*brickColumnCount) {
                             alert("YOU WIN!");
-                            document.location.reload();
+                            document.location.reload;
+                            switchRestart(); //only used if reload doesn't work
                         }
                     }
                 }
+            }
+        }
+    }
+
+    function switchRestart() {
+        leftPressed = false;
+         rightPressed = false;
+        score = 0;
+
+        bricks = [];
+        for(c=0; c<brickColumnCount; c++) {
+            bricks[c] = [];
+            for(r=0; r<brickRowCount; r++) {
+                bricks[c][r] = { x: 0, y: 0, status: 1 };
             }
         }
     }
@@ -152,6 +167,7 @@
             y = canvas.height*0.6;
             alert("Game over with a score of: " + score)
             document.location.reload;
+            switchRestart(); //only used if reload doesn't work
         }
     }
 
