@@ -1,5 +1,30 @@
 var inFullScreen = false;
 
+var music = document.getElementById("music");
+var muted = false;
+
+var paused = false;
+
+function toggleMusic() {
+    if (muted) {
+        music.volume = 1;
+        muted = false
+    }
+    else {
+        music.volume = 0;
+        muted = true
+    }
+}
+
+function togglePause() {
+    if (paused) {
+        paused = false;
+    }
+    else {
+        paused = true;
+    }
+}
+
 function toggleFullScreen(element) {
     if (inFullScreen) {
         launchFullscreen(element);

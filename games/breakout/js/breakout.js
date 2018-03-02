@@ -3,11 +3,6 @@ var ctx = canvas.getContext("2d");
 canvas.width = window.innerWidth;
 canvas.height = window.innerHeight;
 
-var music = document.getElementById("music");
-var muted = false;
-
-var paused = false;
-
 var score = 0;
 
 //paddle
@@ -113,26 +108,6 @@ function mouseMoveHandler(e) {
     }
 }
 
-function togglePause() {
-    if (paused) {
-        paused = false;
-    }
-    else {
-        paused = true;
-    }
-}
-
-function toggleMusic() {
-    if (muted) {
-        music.volume = 1;
-        muted = false
-    }
-    else {
-        music.volume = 0;
-        muted = true
-    }
-}
-
 function restart() {
     leftPressed = false;
     rightPressed = false;
@@ -155,6 +130,7 @@ function restart() {
 
 function draw() {
     ctx.clearRect(0, 0, canvas.width, canvas.height);
+    canvas.width = window.innerWidth;
     if (paused) {
         //paused text
         ctx.textAlign = "center";
@@ -168,8 +144,8 @@ function draw() {
         //settings
         ctx.font = "25px Raleway";
         ctx.lineWidth = 3;
-        ctx.strokeText("Press \u2191 to toggle fullscreen an \u2193 to toggle music", canvas.width / 2, canvas.height*0.6)
-        ctx.fillText("Press \u2191 to toggle fullscreen an \u2193 to toggle music", canvas.width / 2, canvas.height*0.6)
+        ctx.strokeText("Press \u2191 to toggle fullscreen and \u2193 to toggle music", canvas.width / 2, canvas.height*0.6)
+        ctx.fillText("Press \u2191 to toggle fullscreen and \u2193 to toggle music", canvas.width / 2, canvas.height*0.6)
     } else {
         drawPaddle();
         drawBall();
