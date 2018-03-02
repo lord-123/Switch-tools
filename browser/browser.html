@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title>Switch browser</title>
+    <style>
+    	* { padding: 0; margin: 0; }
+    	canvas { background: #eee; display: block; margin: 0 auto; }
+        html, body { background-color: #eee; height: 100%; margin: 0; }
+    </style>
+    <script src="js/browser.js"></script>
+</head>
+<body>
+    <form>
+        <input name="navBar" onkeypress="navigate()">
+    </form>
+
+    <object type="text/html" data="google.com" style="width: 100%; height: 100%" id="window">
+        <p>unavailable</p>
+    </object>
+</body>
+</html>
