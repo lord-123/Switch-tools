@@ -1,3 +1,3 @@
-## Welcome to my switch game site
+## Welcome to my switch site
 
 [Breakout](games/breakout)
