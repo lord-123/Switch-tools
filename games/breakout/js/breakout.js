@@ -9,7 +9,6 @@ var muted = false;
 var paused = false;
 
 var score = 0;
-var lives = 3;
 
 //paddle
 var paddleHeight = 10;
