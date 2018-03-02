@@ -3,7 +3,10 @@ var ctx = canvas.getContext("2d");
 canvas.width = window.innerWidth;
 canvas.height = window.innerHeight;
 
-var paused = true;
+var music = document.getElementById("music");
+var muted = false;
+
+var paused = false;
 
 var score = 0;
 var lives = 3;
@@ -89,7 +92,7 @@ function collisionDetection() {
                     if (score == brickRowCount * brickColumnCount) {
                         alert("YOU WIN!");
                         document.location.reload;
-                        restart(); //only used if reload doesn't work
+                        restart();
                     }
                 }
             }
@@ -120,6 +123,17 @@ function togglePause() {
     }
 }
 
+function toggleMusic() {
+    if (muted) {
+        music.volume = 1;
+        muted = false
+    }
+    else {
+        music.volume = 0;
+        muted = true
+    }
+}
+
 function restart() {
     leftPressed = false;
     rightPressed = false;
@@ -140,27 +154,24 @@ function restart() {
     }
 }
 
-function launchFullscreen(element) {
-    if (element.requestFullscreen) {
-        element.requestFullscreen();
-    } else if (element.mozRequestFullScreen) {
-        element.mozRequestFullScreen();
-    } else if (element.webkitRequestFullscreen) {
-        element.webkitRequestFullscreen();
-    } else if (element.msRequestFullscreen) {
-        element.msRequestFullscreen();
-    }
-}
-
 function draw() {
     if (paused) {
+        ctx.clearRect(0, 0, canvas.width, canvas.height);
+
+        //paused text
         ctx.textAlign = "center";
         ctx.font = "200px Raleway";
         ctx.strokeStyle = "black";
-        ctx.lineWidth = 4;
-        ctx.strokeText("Paused", canvas.width / 2, canvas.height / 2)
         ctx.fillStyle = "white"
+        ctx.lineWidth = 4;
+        ctx.strokeText("Paused", canvas.width / 2, canvas.height / 2)        
         ctx.fillText("Paused", (canvas.width / 2), canvas.height / 2)
+
+        //settings
+        ctx.font = "25px Raleway";
+        ctx.lineWidth = 3;
+        ctx.strokeText("Press \u2191 to toggle fullscreen an \u2193 to toggle music", canvas.width / 2, canvas.height*0.6)
+        ctx.fillText("Press \u2191 to toggle fullscreen an \u2193 to toggle music", canvas.width / 2, canvas.height*0.6)
     }
     else {
         ctx.clearRect(0, 0, canvas.width, canvas.height);
@@ -209,6 +220,12 @@ function keyDownHandler(e) {
     } else if (e.keyCode == 37) {
         leftPressed = true;
         rightPressed = false;
+    } else if (e.keyCode == 40) {
+        toggleMusic();
+    } else if (e.keyCode == 13) {
+        togglePause();
+    } else if (e.keyCode == 38) {
+        toggleFullScreen(document.documentElement);
     }
 }
 
@@ -217,11 +234,7 @@ function keyUpHandler(e) {
         rightPressed = false;
     } else if (e.keyCode == 37) {
         leftPressed = false;
-    } else if (e.keyCode == 32 || 13) {
-        togglePause()
     }
 }
-
-launchFullscreen();
 
 var interval = setInterval(draw, 10);
