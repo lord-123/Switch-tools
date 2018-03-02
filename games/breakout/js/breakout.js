@@ -154,9 +154,8 @@ function restart() {
 }
 
 function draw() {
+    ctx.clearRect(0, 0, canvas.width, canvas.height);
     if (paused) {
-        ctx.clearRect(0, 0, canvas.width, canvas.height);
-
         //paused text
         ctx.textAlign = "center";
         ctx.font = "200px Raleway";
@@ -173,8 +172,6 @@ function draw() {
         ctx.fillText("Press \u2191 to toggle fullscreen an \u2193 to toggle music", canvas.width / 2, canvas.height*0.6)
     }
     else {
-        ctx.clearRect(0, 0, canvas.width, canvas.height);
-
         drawPaddle();
         drawBall();
         drawBricks();
