@@ -170,8 +170,7 @@ function draw() {
         ctx.lineWidth = 3;
         ctx.strokeText("Press \u2191 to toggle fullscreen an \u2193 to toggle music", canvas.width / 2, canvas.height*0.6)
         ctx.fillText("Press \u2191 to toggle fullscreen an \u2193 to toggle music", canvas.width / 2, canvas.height*0.6)
-    }
-    else {
+    } else {
         drawPaddle();
         drawBall();
         drawBricks();
