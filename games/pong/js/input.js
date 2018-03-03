@@ -26,11 +26,3 @@ document.addEventListener("mousemove", function mouseMoveHandler(e) {
         playerPaddleY = realtiveY - paddleHeight / 2;
     }
 }, false);
-
-document.addEventListener("touchmove", function touchMoveHandler(e) {
-    var touchObg = e.changedTouches[0];
-    var realtiveY = touchObj.clientY - canvas.offsetLeft;
-    if (realtiveY > 0 + paddleHeight /2 && realtiveY < canvas.height - paddleHeight / 2) {
-        playerPaddleY = realtiveY - paddleHeight / 2;
-    }
-}, false);
