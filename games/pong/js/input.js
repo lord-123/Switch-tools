@@ -26,28 +26,3 @@ document.addEventListener("mousemove", function mouseMoveHandler(e) {
         playerPaddleY = realtiveY - paddleHeight / 2;
     }
 }, false);
-
-window.addEventListener("load", function(){
-    document.addEventListener("touchstart", function(e){
-        var touchobj = e.changedTouches[0]; // reference first touch point (ie: first finger)
-        var relativeY = parseInt(touchobj.clientY) - canvas.offsetLeft;
-        if (realtiveY > 0 + paddleHeight /2 && realtiveY < canvas.height - paddleHeight / 2) {
-            playerPaddleY = realtiveY - paddleHeight / 2;
-        }
-        e.preventDefault();
-    }, false)
- 
-    document.addEventListener("touchmove", function(e){
-        var touchobj = e.changedTouches[0]; // reference first touch point for this event
-        var relativeY = parseInt(touchobj.clientY) - canvas.offsetLeft;
-        if (realtiveY > 0 + paddleHeight /2 && realtiveY < canvas.height - paddleHeight / 2) {
-            playerPaddleY = realtiveY - paddleHeight / 2;
-        }
-        e.preventDefault();
-    }, false);
- 
-    document.addEventListener("touchend", function(e){
-        var touchobj = e.changedTouches[0]; // reference first touch point for this event
-        e.preventDefault();
-    }, false);
-}, false);
