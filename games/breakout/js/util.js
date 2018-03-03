@@ -45,6 +45,9 @@ function launchFullscreen(element) {
     } else if (element.msRequestFullscreen) {
         element.msRequestFullscreen();
     }
+
+    canvas.width = screen.width;
+    canvas.height = screen.height;
 }
 
 function exitFullscreen() {

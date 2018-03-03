@@ -1,7 +1,5 @@
 var canvas = document.getElementById("myCanvas");
 var ctx = canvas.getContext("2d");
-canvas.width = window.innerWidth;
-canvas.height = window.innerHeight;
 
 var upPressed = false;
 var downPressed = false;
@@ -18,8 +16,8 @@ var computerPaddleY = canvas.height/2-paddleHeight/2;
 //ball
 var x = canvas.width / 2;
 var y = canvas.height / 2;
-var dx = Math.floor((Math.random() * 4) + 3);
-var dy = Math.floor((Math.random() * 4) + 3);
+var dx = 6;
+var dy = Math.floor((Math.random() * 4) - 4);
 var ballRadius = 20;
 
 function drawPlayerPaddle() {
@@ -72,11 +70,11 @@ function reset(scorer) {
     y = canvas.height / 2;
 
     if (scorer == "player") {
-        dx = Math.floor((Math.random() * -4) - 3);
+        dx = -6;
     } else if (scorer == "computer") {
-        dx = Math.floor((Math.random() * 4) + 3);
+        dx = 6;
     }
-    dy = Math.floor((Math.random() * 4) + 3);
+    dy = Math.floor((Math.random() * 4) - 4);
 }
 
 function draw() {

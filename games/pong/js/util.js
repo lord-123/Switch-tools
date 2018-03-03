@@ -1,4 +1,7 @@
 var inFullScreen = false;
+canvas.width = window.innerWidth;
+canvas.height = window.innerHeight;
+
 var muted = false;
 var paused = false;
 var beep = document.getElementById("beep");
@@ -42,6 +45,9 @@ function launchFullscreen(element) {
     } else if (element.msRequestFullscreen) {
         element.msRequestFullscreen();
     }
+
+    canvas.width = screen.width;
+    canvas.height = screen.height;
 }
 
 function exitFullscreen() {

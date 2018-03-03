@@ -123,7 +123,7 @@ function restart() {
 
 function draw() {
     ctx.clearRect(0, 0, canvas.width, canvas.height);
-    canvas.width = window.innerWidth;
+
     if (paused) {
         //paused text
         ctx.textAlign = "center";
