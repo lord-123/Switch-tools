@@ -121,24 +121,28 @@ function restart() {
     }
 }
 
+function drawPauseMenu() {
+    //paused text
+    ctx.textAlign = "center";
+    ctx.font = "200px Raleway";
+    ctx.strokeStyle = "black";
+    ctx.fillStyle = "white"
+    ctx.lineWidth = 4;
+    ctx.strokeText("Paused", canvas.width / 2, canvas.height / 2)        
+    ctx.fillText("Paused", (canvas.width / 2), canvas.height / 2)
+
+    //settings
+    ctx.font = "25px Raleway";
+    ctx.lineWidth = 3;
+    ctx.strokeText("Press \u2191 to toggle fullscreen and \u2193 to toggle music", canvas.width / 2, canvas.height*0.6)
+    ctx.fillText("Press \u2191 to toggle fullscreen and \u2193 to toggle music", canvas.width / 2, canvas.height*0.6)
+}
+
 function draw() {
     ctx.clearRect(0, 0, canvas.width, canvas.height);
 
     if (paused) {
-        //paused text
-        ctx.textAlign = "center";
-        ctx.font = "200px Raleway";
-        ctx.strokeStyle = "black";
-        ctx.fillStyle = "white"
-        ctx.lineWidth = 4;
-        ctx.strokeText("Paused", canvas.width / 2, canvas.height / 2)        
-        ctx.fillText("Paused", (canvas.width / 2), canvas.height / 2)
-
-        //settings
-        ctx.font = "25px Raleway";
-        ctx.lineWidth = 3;
-        ctx.strokeText("Press \u2191 to toggle fullscreen and \u2193 to toggle music", canvas.width / 2, canvas.height*0.6)
-        ctx.fillText("Press \u2191 to toggle fullscreen and \u2193 to toggle music", canvas.width / 2, canvas.height*0.6)
+        drawPauseMenu();
     } else {
         drawPaddle();
         drawBall();
