@@ -43,8 +43,8 @@ for (c = 0; c < brickColumnCount; c++) {
 function drawPaddle() {
     ctx.beginPath();
     ctx.rect(paddleX, canvas.height - paddleHeight, paddleWidth, paddleHeight);
-    ctx.fillStyle = "0095DD";
     ctx.fill();
+    ctx.fillStyle = "0095DD";
     ctx.closePath();
 }
 
