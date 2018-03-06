@@ -2,6 +2,8 @@
 
 ## Games
 
+[Rapid Tap](games/rapidtap)
+
 [Breakout](games/breakout)
 
 [Pong](games/pong)
