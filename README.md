@@ -8,6 +8,8 @@
 
 [Pong](games/pong)
 
+[Reaction game](games/reactiongame)
+
 ## How can I play these on my switch?
 
 You can use the [switchbru dns](https://www.switchbru.com/dns/)
