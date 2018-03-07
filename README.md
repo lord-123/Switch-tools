@@ -8,7 +8,7 @@
 
 [Pong](games/pong)
 
-[Reaction game](games/reactiongame)
+[Reaction game \(beta\)](games/reactiongame)
 
 ## How can I play these on my switch?
 
