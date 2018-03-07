@@ -1,12 +1,7 @@
-# How to play pong
+# How to play reaction game
 
-| Action  | PC | Switch |
-|---------|----|--------|
-| Pause  | Space/Enter  | Any not in use |
-| Move  | Mouse/Arrow keys  | Left stick/DPAD |
-| Fullscreen | Right arrow | Right arrow |
-| Toggle audio | Left arrow | Left arrow |
+Simply tap as soon as the screen turns red!
 
-[Play pong](pong.html)
+[Play reaction game](reactiongame.html)
 
 [back](http://lord-123.github.io/Switch-tools)
